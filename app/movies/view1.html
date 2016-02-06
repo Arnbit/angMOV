@@ -1,1 +1,30 @@
-<p>This is the partial for view 1.</p>
+<div class="page-header" align="center">
+  <h1>Welcome to the Movies Section <br><small>Search for Movies</small></h1>
+</div>
+
+<div class="col-xs-11">
+ 	<input type="text" ng-model="moviename" ng-model-options = "{ debounce: 1000 }" name="mName" class="form-control input-lg" placeholder="Title Name">
+</div>
+
+<div class="col-xs-1">
+	<input type="text" ng-model="movieyear" ng-model-options = "{ debounce: 1000 }" name="mYear" class="form-control  input-lg" placeholder="Year">
+</div>
+
+
+<div ng-if="details.Response==='True'">
+  <div >
+    <ng-include src="'myTable.htm'" ng-init="res='Search Successful'"></ng-include>
+  </div>
+</div>
+
+<div ng-if="details.Response==='False'">
+  No results found.
+</div>
+
+
+
+
+
+
+
+

@@ -1,0 +1,54 @@
+<span style="visibility:hidden">{{res}}!!</span>
+<!-- <p>{{res}}!!</p> -->
+ <table class="table table-striped">
+        <thead>
+            
+        </thead>
+        <tbody>
+            <tr>
+                <td style="text-align: center;"><img ng-src="{{ details.Poster=='N/A' ? 'http://placehold.it/150x220&text=N/A' : details.Poster }}"  height="220" width="150"></td>
+                <td>
+                  <div style="width: 400px">
+                    <span>
+                      <b><a href="http://imdb.com/title/{{ details.imdbID }}" target="_blank">{{ details.Title }}</a>, {{ details.Year }}</b>
+                    </span><br>
+                    <div style="text-align: justify;">{{ details.Plot }}</div>
+                    </div></td>
+                <td>
+                    <div class="inner-p">
+                      <span class="label label-primary">Directors :</span><br> {{ details.Director }}
+                    </div>
+
+                    <div class="inner-p">
+                      <span class="label label-primary">Actors :</span><br> {{ details.Actors }}
+                    </div>
+
+                    <div class="inner-p">
+                      <span class="label label-primary">Genre :</span><br> {{ details.Genre }}
+                    </div>
+                </td>
+                <td>
+                  <div ng-if="related.Response!=='False'">
+                    <ul class="rel-results">
+                      Related Results:<br>
+                      <li ng-repeat="movie in related.Search">
+                        <a href="" id="{{ $index + 1 }}" ng-click="update(movie)">{{ movie.Title }}</a>, {{ movie.Year }}
+                      </li>
+                    </ul>
+                    </div>
+                </td>
+            </tr>
+            <tr style="text-align: left;">
+                <td>
+                  <p class="outer-p-2">
+                  <strong>IMDb Rating</strong>: <span class="label label-success">{{ details.imdbRating }}</span><br>
+                  </p>
+                </td>
+                <td>
+                    <a ng-href="https://www.youtube.com/results?search_query={{ details.Title }}" target="_blank" class="btn btn-default btn-xs btn-info">Watch Trailers!</a>
+                </td>
+                <td></td>
+                <td></td>
+            </tr>
+         </tbody>
+    </table>

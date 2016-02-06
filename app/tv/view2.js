@@ -1,14 +1,14 @@
 'use strict';
 
-angular.module('movApp.tv', ['ngRoute'])
+var tv = angular.module('tv', ['ngRoute']);
 
-.config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/tv', {
-    templateUrl: 'tv/view2.html',
-    controller: 'View2Ctrl'
-  });
-}])
 
-.controller('View2Ctrl', [function() {
 
+tv.controller('tvCtrl' , ['$scope', '$location', 
+	function($scope, $location) {
+		//console.log ($location.path());
+		$scope.isActive = function (viewLocation) { 
+        	return viewLocation === $location.path();
+    	};
 }]);
+
