@@ -11,7 +11,7 @@
 </div>
 
 
-<div ng-if="details.Response==='True'">
+<div ng-if="details.Response==='True' && moviename!=''">
   <div >
     <ng-include src="'myTable.htm'" ng-init="res='Search Successful'"></ng-include>
   </div>

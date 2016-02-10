@@ -24,21 +24,15 @@ function fetch(){
   			$http.get("http://www.omdbapi.com/?t=" + $scope.moviename + "&y=" + $scope.movieyear + "&tomatoes=true&plot=full")
 	  		.then(function(response){ $scope.details = response.data; });
   		};
-  	
+
   		$http.get("http://www.omdbapi.com/?s=" + $scope.moviename)
 	  	.then(function(response){ $scope.related = response.data; });
-	};	
+	};
 }
-
-$scope.Init = function(details)
-    {
-      console.log(details.Title);
-      //$scope.percentObj = [{ "value":40,"color":"#F5A623" },{ "value":60,"color":"#F5A623"                }]
-    }
 
 $scope.update = function(movie){
   $scope.moviename = movie.Title;
-  $scope.movieyear = movie.Year;
+  //$scope.movieyear = movie.Year;
 };
 
 $scope.select = function(){
